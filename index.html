@@ -55,7 +55,7 @@
             --font-body: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 
             /* Spacing */
-            --section-padding: clamp(64px, 10vw, 120px);
+            --section-padding: clamp(48px, 6vw, 80px);
             --container-max: 1200px;
             --radius-sm: 12px;
             --radius-md: 16px;
@@ -64,10 +64,8 @@
 
             /* Transitions */
             --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
             --duration-fast: 200ms;
             --duration-normal: 400ms;
-            --duration-slow: 600ms;
         }
 
         /* ============ RESET & BASE ============ */
@@ -87,7 +85,7 @@
             font-family: var(--font-body);
             color: var(--gray-800);
             background: var(--surface);
-            line-height: 1.6;
+            line-height: 1.5;
             overflow-x: hidden;
         }
 
@@ -126,17 +124,17 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.08em;
             text-transform: uppercase;
             color: var(--primary);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .section-label::before {
             content: '';
-            width: 24px;
+            width: 16px;
             height: 2px;
             background: var(--primary);
             border-radius: 2px;
@@ -144,24 +142,24 @@
 
         .section-title {
             font-family: var(--font-display);
-            font-size: clamp(32px, 5vw, 48px);
+            font-size: clamp(28px, 4vw, 36px);
             font-weight: 700;
-            line-height: 1.15;
+            line-height: 1.2;
             letter-spacing: -0.025em;
             color: var(--gray-900);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .section-subtitle {
-            font-size: clamp(16px, 2vw, 19px);
+            font-size: clamp(15px, 2vw, 17px);
             color: var(--gray-500);
-            line-height: 1.65;
-            max-width: 640px;
+            line-height: 1.6;
+            max-width: 600px;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: clamp(40px, 6vw, 64px);
+            margin-bottom: clamp(32px, 5vw, 48px);
         }
 
         .section-header .section-subtitle {
@@ -171,22 +169,15 @@
         /* Scroll Reveal */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity var(--duration-slow) var(--ease-out),
-                        transform var(--duration-slow) var(--ease-out);
+            transform: translateY(20px);
+            transition: opacity var(--duration-normal) var(--ease-out),
+                        transform var(--duration-normal) var(--ease-out);
         }
 
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
-        .reveal-delay-1 { transition-delay: 100ms; }
-        .reveal-delay-2 { transition-delay: 200ms; }
-        .reveal-delay-3 { transition-delay: 300ms; }
-        .reveal-delay-4 { transition-delay: 400ms; }
-        .reveal-delay-5 { transition-delay: 500ms; }
-        .reveal-delay-6 { transition-delay: 600ms; }
 
         /* ============ NAVIGATION ============ */
         .navbar {
@@ -196,10 +187,6 @@
             right: 0;
             z-index: 1000;
             padding: 0 24px;
-            transition: all var(--duration-normal) var(--ease-out);
-        }
-
-        .navbar.scrolled {
             background: var(--glass-bg);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -213,73 +200,56 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 72px;
+            height: 64px;
         }
 
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             font-family: var(--font-display);
             font-weight: 700;
-            font-size: 20px;
+            font-size: 18px;
             color: var(--gray-900);
         }
 
         .nav-logo-icon {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 10px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 800;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 32px;
+            gap: 24px;
             list-style: none;
         }
 
         .nav-links a {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             color: var(--gray-600);
             transition: color var(--duration-fast);
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            border-radius: 2px;
-            transition: width var(--duration-normal) var(--ease-out);
         }
 
         .nav-links a:hover {
             color: var(--primary);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
         .nav-cta {
-            padding: 10px 24px;
+            padding: 8px 18px;
             background: var(--primary);
             color: var(--white) !important;
             border-radius: 100px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             transition: all var(--duration-fast) var(--ease-out);
             box-shadow: 0 2px 8px var(--primary-glow);
@@ -291,110 +261,38 @@
             box-shadow: 0 4px 16px var(--primary-glow);
         }
 
-        .nav-cta::after {
-            display: none !important;
-        }
-
-        /* Mobile menu toggle */
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 4px;
-            z-index: 1001;
-        }
-
-        .nav-toggle span {
-            width: 24px;
-            height: 2px;
-            background: var(--gray-800);
-            border-radius: 2px;
-            transition: all var(--duration-normal) var(--ease-out);
-        }
-
-        .nav-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .nav-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .nav-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        /* ============ HERO SECTION ============ */
+        /* ============ HERO GRID (SPLIT ABOVE THE FOLD) ============ */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
+            padding-top: 100px;
+            padding-bottom: 64px;
             position: relative;
-            overflow: hidden;
-            padding-top: 72px;
+            background: radial-gradient(circle at 10% 20%, rgba(108, 60, 225, 0.04) 0%, transparent 50%);
         }
 
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            z-index: -1;
-        }
-
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(108, 60, 225, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float-slow 20s ease-in-out infinite;
-        }
-
-        .hero-bg::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.06) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float-slow 25s ease-in-out infinite reverse;
-        }
-
-        @keyframes float-slow {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(30px, -40px); }
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 820px;
-            margin: 0 auto;
-            padding: 60px 24px;
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: start;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 20px;
-            background: rgba(108, 60, 225, 0.08);
-            border: 1px solid rgba(108, 60, 225, 0.15);
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(108, 60, 225, 0.06);
+            border: 1px solid rgba(108, 60, 225, 0.12);
             border-radius: 100px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--primary);
-            margin-bottom: 32px;
-            animation: fadeInUp 0.8s var(--ease-out) both;
+            margin-bottom: 20px;
         }
 
         .hero-badge .pulse-dot {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background: var(--success);
             border-radius: 50%;
             animation: pulse 2s ease-in-out infinite;
@@ -407,13 +305,12 @@
 
         .hero-title {
             font-family: var(--font-display);
-            font-size: clamp(40px, 7vw, 72px);
+            font-size: clamp(28px, 3.8vw, 42px);
             font-weight: 800;
-            line-height: 1.05;
-            letter-spacing: -0.035em;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
             color: var(--gray-900);
-            margin-bottom: 24px;
-            animation: fadeInUp 0.8s var(--ease-out) 0.1s both;
+            margin-bottom: 14px;
         }
 
         .hero-title .gradient-text {
@@ -424,453 +321,207 @@
         }
 
         .hero-subtitle {
-            font-size: clamp(17px, 2.2vw, 20px);
+            font-size: 14.5px;
             color: var(--gray-500);
-            line-height: 1.7;
-            max-width: 600px;
-            margin: 0 auto 40px;
-            animation: fadeInUp 0.8s var(--ease-out) 0.2s both;
-        }
-
-        .hero-actions {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s var(--ease-out) 0.3s both;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            font-size: 16px;
-            border-radius: 100px;
-            transition: all var(--duration-normal) var(--ease-out);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            padding: 16px 36px;
-            background: var(--primary);
-            color: var(--white);
-            box-shadow: 0 4px 20px var(--primary-glow),
-                        0 0 0 0 var(--primary-glow);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px var(--primary-glow),
-                        0 0 0 4px rgba(108, 60, 225, 0.08);
-        }
-
-        .btn-primary:active {
-            transform: translateY(0);
-        }
-
-        .btn-secondary {
-            padding: 16px 36px;
-            background: var(--surface-elevated);
-            color: var(--gray-700);
-            border: 1.5px solid var(--gray-200);
-            box-shadow: 0 2px 8px rgba(14, 19, 34, 0.06);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--gray-300);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-        }
-
-        .btn-icon {
-            font-size: 18px;
-        }
-
-        /* Hero stats */
-        .hero-stats {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 48px;
-            margin-top: 64px;
-            animation: fadeInUp 0.8s var(--ease-out) 0.5s both;
-        }
-
-        .hero-stat {
-            text-align: center;
-        }
-
-        .hero-stat-number {
-            font-family: var(--font-display);
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--gray-900);
-            letter-spacing: -0.02em;
-        }
-
-        .hero-stat-label {
-            font-size: 13px;
-            color: var(--gray-400);
-            font-weight: 500;
-            margin-top: 4px;
-        }
-
-        .stat-divider {
-            width: 1px;
-            height: 40px;
-            background: var(--gray-200);
-        }
-
-        /* ============ ABOUT SECTION ============ */
-        .about {
-            padding: var(--section-padding) 0;
-            background: var(--surface-sunken);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-family: var(--font-display);
-            font-size: clamp(28px, 4vw, 40px);
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-            color: var(--gray-900);
+            line-height: 1.5;
             margin-bottom: 20px;
         }
 
-        .about-text p {
-            font-size: 17px;
-            color: var(--gray-500);
-            line-height: 1.75;
-            margin-bottom: 32px;
-        }
-
-        .about-skills {
+        /* Inline skills list (from About section) */
+        .hero-skills {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            gap: 10px;
+            margin-bottom: 32px;
         }
 
         .skill-tag {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 14px 18px;
+            gap: 8px;
+            padding: 10px 14px;
             background: var(--surface-elevated);
             border-radius: var(--radius-sm);
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             color: var(--gray-700);
             border: 1px solid var(--gray-200);
-            transition: all var(--duration-normal) var(--ease-out);
-        }
-
-        .skill-tag:hover {
-            border-color: var(--primary);
-            box-shadow: 0 4px 16px var(--primary-glow);
-            transform: translateY(-2px);
         }
 
         .skill-tag-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .about-visual {
-            position: relative;
-        }
-
-        .about-card {
-            background: var(--surface-elevated);
-            border-radius: var(--radius-xl);
-            padding: 48px;
-            border: 1px solid var(--gray-200);
-            box-shadow: 0 24px 80px rgba(14, 19, 34, 0.08);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-        }
-
-        .about-card-stat {
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .about-card-stat-number {
-            font-family: var(--font-display);
-            font-size: 56px;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.03em;
-        }
-
-        .about-card-stat-label {
-            font-size: 15px;
-            color: var(--gray-500);
-            font-weight: 500;
-            margin-top: 4px;
-        }
-
-        .about-card-divider {
-            height: 1px;
-            background: var(--gray-200);
-            margin: 16px 0;
-        }
-
-        /* ============ WHY JOIN SECTION ============ */
-        .why-join {
-            padding: var(--section-padding) 0;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .feature-card {
-            padding: 36px;
-            background: var(--surface-elevated);
-            border: 1px solid var(--gray-200);
-            border-radius: var(--radius-lg);
-            transition: all var(--duration-normal) var(--ease-out);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 0;
-            background: linear-gradient(180deg, rgba(108, 60, 225, 0.04) 0%, transparent 100%);
-            transition: height var(--duration-normal) var(--ease-out);
-        }
-
-        .feature-card:hover {
-            border-color: rgba(108, 60, 225, 0.2);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-        }
-
-        .feature-card:hover::before {
-            height: 100%;
-        }
-
-        .feature-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .feature-card h3 {
-            font-family: var(--font-display);
-            font-size: 19px;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .feature-card p {
-            font-size: 15px;
-            color: var(--gray-500);
-            line-height: 1.65;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ============ JOURNEY SECTION ============ */
-        .journey {
-            padding: var(--section-padding) 0;
-            background: linear-gradient(180deg, var(--gray-900) 0%, #111831 100%);
-            color: #F0F3F9;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .journey::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 1000px;
-            height: 1000px;
-            transform: translate(-50%, -50%);
-            background: radial-gradient(circle, rgba(108, 60, 225, 0.15) 0%, transparent 60%);
-            border-radius: 50%;
-        }
-
-        .journey .section-label {
-            color: var(--primary-light);
-        }
-
-        .journey .section-label::before {
-            background: var(--primary-light);
-        }
-
-        .journey .section-title {
-            color: var(--white);
-        }
-
-        .journey .section-subtitle {
-            color: var(--gray-400);
-        }
-
-        .timeline {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .timeline-step {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: var(--radius-lg);
-            padding: 32px;
-            text-align: center;
-            transition: all var(--duration-normal) var(--ease-out);
-            position: relative;
-            backdrop-filter: blur(8px);
-        }
-
-        .timeline-step:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(108, 60, 225, 0.3);
-            transform: translateY(-4px);
-        }
-
-        .step-number {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-size: 16px;
-            font-weight: 800;
-            color: var(--white);
-            margin: 0 auto 16px;
-            box-shadow: 0 4px 16px var(--primary-glow);
         }
 
-        .step-icon {
-            font-size: 32px;
-            margin-bottom: 12px;
+        /* Stats */
+        .hero-stats {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            border-top: 1px solid var(--gray-200);
+            padding-top: 24px;
         }
 
-        .timeline-step h3 {
+        .hero-stat-number {
             font-family: var(--font-display);
-            font-size: 17px;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 8px;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--gray-900);
         }
 
-        .timeline-step p {
-            font-size: 14px;
+        .hero-stat-label {
+            font-size: 12px;
             color: var(--gray-400);
-            line-height: 1.6;
+            font-weight: 500;
         }
 
-        /* ============ UPCOMING SESSION SECTION ============ */
-        .upcoming {
-            padding: var(--section-padding) 0;
-            background: var(--surface-sunken);
+        .stat-divider {
+            width: 1px;
+            height: 32px;
+            background: var(--gray-200);
         }
 
-        .form-grid {
+        /* Hero Dashboard (Why Join & Journey Widget) */
+        .hero-dashboard {
+            background: var(--surface-elevated);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-top: 24px;
+            box-shadow: 0 4px 20px rgba(14, 19, 34, 0.02);
+        }
+
+        .dashboard-title {
+            font-family: var(--font-display);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray-400);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-why-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 24px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 16px;
+            margin-bottom: 18px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed var(--gray-200);
         }
 
-        @media (max-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr;
+        .why-item {
+            display: flex;
+            gap: 8px;
+            align-items: start;
+        }
+
+        .why-item-icon {
+            font-size: 14px;
+            margin-top: 1px;
+        }
+
+        .why-item-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gray-850);
+        }
+
+        .why-item-desc {
+            font-size: 11px;
+            color: var(--gray-500);
+            line-height: 1.3;
+        }
+
+        .hero-journey-timeline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4px;
+        }
+
+        .journey-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            text-align: center;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .journey-node-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            font-weight: 800;
+            box-shadow: 0 2px 8px var(--primary-glow);
+        }
+
+        .journey-node-text {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--gray-650);
+        }
+
+        .journey-connector {
+            height: 2px;
+            background: var(--gray-200);
+            flex: 0.5;
+            margin-top: -14px;
+        }
+
+        @media (max-width: 480px) {
+            .hero-journey-timeline {
+                flex-wrap: wrap;
+                gap: 8px 12px;
+                justify-content: start;
+            }
+            .journey-connector {
+                display: none;
             }
         }
 
+        /* ============ INTEGRATED CHECKOUT CARD ============ */
         .session-showcase {
-            max-width: 900px;
-            margin: 0 auto;
+            background: var(--surface-elevated);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 16px 48px rgba(14, 19, 34, 0.06);
+            overflow: hidden;
         }
 
         .session-image-wrap {
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            margin-bottom: 40px;
-            box-shadow: 0 24px 80px rgba(0,0,0,0.12);
             position: relative;
+            height: 140px;
+            overflow: hidden;
         }
 
         .session-image-wrap img {
             width: 100%;
-            height: auto;
-            display: block;
-            aspect-ratio: 16/9;
+            height: 100%;
             object-fit: cover;
         }
 
         .session-image-badge {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 8px 16px;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(12px);
+            top: 12px;
+            left: 12px;
+            padding: 6px 12px;
+            background: rgba(14, 19, 34, 0.7);
+            backdrop-filter: blur(8px);
             border-radius: 100px;
             color: var(--white);
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -878,96 +529,141 @@
         }
 
         .session-details {
-            background: var(--surface-elevated);
-            border: 1px solid var(--gray-200);
-            border-radius: var(--radius-xl);
-            padding: 48px;
-            box-shadow: 0 8px 32px rgba(14, 19, 34, 0.06);
+            padding: 20px;
         }
 
         .session-title {
             font-family: var(--font-display);
-            font-size: clamp(24px, 4vw, 32px);
-            font-weight: 800;
+            font-size: 20px;
+            font-weight: 700;
             color: var(--gray-900);
-            margin-bottom: 8px;
-            letter-spacing: -0.02em;
+            margin-bottom: 4px;
         }
 
         .session-desc {
-            font-size: 16px;
+            font-size: 13px;
             color: var(--gray-500);
-            line-height: 1.7;
-            margin-bottom: 32px;
+            line-height: 1.45;
+            margin-bottom: 12px;
         }
 
         .session-meta {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 36px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
         }
 
         .session-meta-item {
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 16px;
-            background: var(--gray-50);
+            gap: 6px;
+            padding: 6px 10px;
+            background: var(--surface-sunken);
             border-radius: var(--radius-sm);
+            flex: 1;
+            min-width: 100px;
         }
 
         .session-meta-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: rgba(108, 60, 225, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            flex-shrink: 0;
+            font-size: 14px;
         }
 
         .session-meta-label {
-            font-size: 12px;
+            font-size: 9px;
             color: var(--gray-400);
-            font-weight: 500;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
         .session-meta-value {
-            font-size: 16px;
+            font-size: 12px;
             font-weight: 700;
             color: var(--gray-800);
-            margin-top: 2px;
+        }
+
+        /* Compact Form Styling */
+        #registrationForm {
+            border-top: 1px solid var(--gray-200);
+            padding-top: 14px;
+            margin-top: 14px;
+        }
+
+        #registrationForm h3 {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 8px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--gray-650);
+            margin-bottom: 3px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 8px 12px;
+            background: var(--surface-sunken);
+            border: 1.5px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            color: var(--gray-800);
+            transition: all var(--duration-fast);
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+            background: var(--surface-elevated);
+            box-shadow: 0 0 0 3px var(--primary-glow);
+        }
+
+        .form-input.error {
+            border-color: var(--error);
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+
+        .form-error {
+            font-size: 11px;
+            color: var(--error);
+            margin-top: 4px;
+            display: none;
+        }
+
+        .form-error.visible {
+            display: block;
         }
 
         .session-footer {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
+            margin-top: 16px;
         }
 
         .session-price {
             display: flex;
             align-items: baseline;
-            gap: 4px;
+            gap: 2px;
         }
 
         .session-price-amount {
             font-family: var(--font-display);
-            font-size: 36px;
+            font-size: 26px;
             font-weight: 800;
             color: var(--gray-900);
-            letter-spacing: -0.02em;
         }
 
         .session-price-label {
-            font-size: 14px;
+            font-size: 12px;
             color: var(--gray-400);
             font-weight: 500;
         }
@@ -975,21 +671,146 @@
         .seats-badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 8px 16px;
+            gap: 4px;
+            padding: 4px 8px;
             background: rgba(52, 211, 153, 0.1);
             color: #059669;
             border-radius: 100px;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
         }
 
         .seats-badge .dot {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background: #059669;
             border-radius: 50%;
-            animation: pulse 2s infinite;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 100px;
+            box-shadow: 0 4px 12px var(--primary-glow);
+            transition: all var(--duration-fast);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .form-note {
+            text-align: center;
+            font-size: 11px;
+            color: var(--gray-400);
+            margin-top: 12px;
+        }
+
+        /* ============ WHY JOIN SECTION ============ */
+        .why-join {
+            padding: var(--section-padding) 0;
+            background: var(--surface-sunken);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .feature-card {
+            padding: 24px;
+            background: var(--surface-elevated);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(108, 60, 225, 0.2);
+            box-shadow: 0 8px 24px rgba(14, 19, 34, 0.04);
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 6px;
+        }
+
+        .feature-card p {
+            font-size: 13px;
+            color: var(--gray-500);
+            line-height: 1.5;
+        }
+
+        /* ============ COMPACT TIMELINE ROADMAP ============ */
+        .timeline-section-title {
+            text-align: center;
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 24px;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 12px;
+            position: relative;
+        }
+
+        .timeline-step {
+            background: var(--surface-elevated);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            padding: 16px 12px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--white);
+            margin: 0 auto 8px;
+        }
+
+        .timeline-step h3 {
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+
+        .timeline-step p {
+            font-size: 11px;
+            color: var(--gray-400);
+            line-height: 1.3;
         }
 
         /* ============ TESTIMONIALS SECTION ============ */
@@ -1000,161 +821,58 @@
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 16px;
         }
 
         .testimonial-card {
-            padding: 36px;
+            padding: 24px;
             background: var(--surface-elevated);
             border: 1px solid var(--gray-200);
-            border-radius: var(--radius-lg);
-            transition: all var(--duration-normal) var(--ease-out);
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+            border-radius: var(--radius-md);
         }
 
         .testimonial-stars {
-            display: flex;
-            gap: 2px;
-            margin-bottom: 16px;
             color: var(--accent);
-            font-size: 16px;
+            font-size: 14px;
+            margin-bottom: 12px;
         }
 
         .testimonial-text {
-            font-size: 15px;
+            font-size: 13.5px;
             color: var(--gray-600);
-            line-height: 1.75;
-            margin-bottom: 24px;
+            line-height: 1.6;
+            margin-bottom: 16px;
             font-style: italic;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 10px;
         }
 
         .testimonial-avatar {
-            width: 48px;
-            height: 48px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--gray-100);
+            border: 1.5px solid var(--gray-100);
         }
 
         .testimonial-name {
-            font-size: 15px;
+            font-size: 13px;
             font-weight: 700;
             color: var(--gray-800);
         }
 
         .testimonial-role {
-            font-size: 13px;
+            font-size: 11px;
             color: var(--gray-400);
-        }
-
-        /* ============ REGISTRATION SECTION ============ */
-        .registration {
-            padding: var(--section-padding) 0;
-            background: var(--surface-sunken);
-        }
-
-        .reg-container {
-            max-width: 560px;
-            margin: 0 auto;
-        }
-
-        .reg-form-card {
-            background: var(--surface-elevated);
-            border: 1px solid var(--gray-200);
-            border-radius: var(--radius-xl);
-            padding: 48px;
-            box-shadow: 0 24px 80px rgba(14, 19, 34, 0.08);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .reg-form-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--gray-700);
-            margin-bottom: 8px;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 14px 18px;
-            background: var(--surface-sunken);
-            border: 1.5px solid var(--gray-200);
-            border-radius: var(--radius-sm);
-            font-size: 16px;
-            color: var(--gray-800);
-            transition: all var(--duration-fast);
-        }
-
-        .form-input:focus {
-            border-color: var(--primary);
-            background: var(--surface);
-            box-shadow: 0 0 0 4px var(--primary-glow);
-        }
-
-        .form-input.error {
-            border-color: var(--error);
-            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
-        }
-
-        .form-error {
-            font-size: 13px;
-            color: var(--error);
-            margin-top: 6px;
-            display: none;
-        }
-
-        .form-error.visible {
-            display: block;
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 16px;
-            font-size: 16px;
-            justify-content: center;
-        }
-
-        .form-note {
-            text-align: center;
-            font-size: 13px;
-            color: var(--gray-400);
-            margin-top: 16px;
-        }
-
-        .form-note svg {
-            vertical-align: middle;
-            margin-right: 4px;
         }
 
         /* ============ FOOTER ============ */
         .footer {
-            padding: 48px 0;
+            padding: 32px 0;
             background: var(--gray-900);
             color: var(--gray-300);
         }
@@ -1164,55 +882,55 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 24px;
+            gap: 16px;
         }
 
         .footer-logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             font-family: var(--font-display);
             font-weight: 700;
-            font-size: 18px;
+            font-size: 16px;
             color: var(--white);
         }
 
         .footer-logo .nav-logo-icon {
-            width: 32px;
-            height: 32px;
-            font-size: 16px;
+            width: 28px;
+            height: 28px;
+            font-size: 14px;
+            border-radius: 6px;
         }
 
         .footer-social {
             display: flex;
-            gap: 12px;
+            gap: 8px;
         }
 
         .footer-social a {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             border: 1px solid rgba(255,255,255,0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--gray-400);
-            font-size: 18px;
+            font-size: 14px;
             transition: all var(--duration-fast);
         }
 
         .footer-social a:hover {
             border-color: var(--primary);
             color: var(--primary-light);
-            background: rgba(108, 60, 225, 0.1);
         }
 
         .footer-copy {
-            font-size: 13px;
+            font-size: 12px;
         }
 
-        /* ============ ADMIN PANEL ============ */
-        .admin-overlay {
+        /* ============ ADMIN PANEL OVERLAYS ============ */
+        .admin-overlay, .login-overlay {
             position: fixed;
             inset: 0;
             background: rgba(0,0,0,0.5);
@@ -1224,22 +942,28 @@
             padding: 24px;
         }
 
-        .admin-overlay.active {
+        .admin-overlay.active, .login-overlay.active {
             display: flex;
         }
 
-        .admin-panel {
+        .admin-panel, .login-card {
             background: var(--surface);
             border-radius: var(--radius-xl);
             width: 100%;
-            max-width: 720px;
+            max-width: 600px;
             max-height: 85vh;
             overflow-y: auto;
             box-shadow: 0 32px 80px rgba(14, 19, 34, 0.25);
         }
 
+        .login-card {
+            max-width: 360px;
+            padding: 32px;
+            text-align: center;
+        }
+
         .admin-header {
-            padding: 28px 32px;
+            padding: 20px 24px;
             border-bottom: 1px solid var(--gray-200);
             display: flex;
             align-items: center;
@@ -1248,113 +972,72 @@
             top: 0;
             background: var(--surface);
             z-index: 10;
-            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-        }
-
-        .admin-header h2 {
-            font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--gray-900);
         }
 
         .admin-close {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: var(--gray-100);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
+            font-size: 18px;
             color: var(--gray-500);
-            transition: all var(--duration-fast);
-        }
-
-        .admin-close:hover {
-            background: var(--gray-200);
-            color: var(--gray-700);
         }
 
         .admin-body {
-            padding: 32px;
+            padding: 24px;
         }
 
         .admin-section {
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
 
         .admin-section h3 {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
             color: var(--gray-800);
-            margin-bottom: 16px;
-            padding-bottom: 8px;
+            margin-bottom: 12px;
+            padding-bottom: 4px;
             border-bottom: 1px solid var(--gray-100);
         }
 
         .admin-field {
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .admin-field label {
             display: block;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--gray-600);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .admin-field input,
         .admin-field textarea {
             width: 100%;
-            padding: 10px 14px;
+            padding: 8px 12px;
             background: var(--surface-sunken);
             border: 1.5px solid var(--gray-200);
-            border-radius: 10px;
-            font-size: 14px;
+            border-radius: 8px;
+            font-size: 13px;
             color: var(--gray-800);
-            transition: all var(--duration-fast);
-        }
-
-        .admin-field input:focus,
-        .admin-field textarea:focus {
-            border-color: var(--primary);
-            background: var(--surface-elevated);
-            box-shadow: 0 0 0 3px var(--primary-glow);
-        }
-
-        .admin-field textarea {
-            resize: vertical;
-            min-height: 80px;
         }
 
         .admin-save {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             background: var(--primary);
             color: var(--white);
-            border-radius: var(--radius-sm);
-            font-size: 15px;
+            border-radius: 8px;
+            font-size: 14px;
             font-weight: 600;
-            transition: all var(--duration-fast);
-        }
-
-        .admin-save:hover {
-            background: var(--primary-dark);
         }
 
         .admin-toast {
             position: fixed;
             bottom: 24px;
             right: 24px;
-            padding: 14px 24px;
+            padding: 12px 20px;
             background: var(--gray-900);
             color: var(--white);
-            border-radius: var(--radius-sm);
-            font-size: 14px;
-            font-weight: 500;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            font-size: 13px;
             transform: translateY(100px);
             opacity: 0;
             transition: all var(--duration-normal) var(--ease-out);
@@ -1366,194 +1049,38 @@
             opacity: 1;
         }
 
-        /* Login overlay */
-        .login-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(8px);
-            z-index: 2000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-        }
-
-        .login-overlay.active {
-            display: flex;
-        }
-
-        .login-card {
-            background: var(--surface);
-            border-radius: var(--radius-xl);
-            padding: 48px;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 32px 80px rgba(14, 19, 34, 0.25);
-            text-align: center;
-        }
-
-        .login-card h2 {
-            font-family: var(--font-display);
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 8px;
-        }
-
-        .login-card p {
-            font-size: 14px;
-            color: var(--gray-500);
-            margin-bottom: 28px;
-        }
-
-        .login-card .form-group {
-            text-align: left;
-        }
-
-        .login-error {
-            font-size: 13px;
-            color: var(--error);
-            margin-bottom: 12px;
-            display: none;
-        }
-
-        /* Testimonial admin */
-        .admin-testimonial-card {
-            background: var(--surface-sunken);
-            border: 1px solid var(--gray-200);
-            border-radius: var(--radius-sm);
-            padding: 20px;
-            margin-bottom: 16px;
-        }
-
-        .admin-testimonial-card h4 {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--gray-700);
-            margin-bottom: 12px;
-        }
-
-        /* Admin trigger (hidden in footer) */
+        /* Admin trigger */
         .admin-trigger {
             cursor: pointer;
-            opacity: 0.5;
-            transition: opacity var(--duration-fast);
-        }
-
-        .admin-trigger:hover {
-            opacity: 1;
         }
 
         /* ============ RESPONSIVE ============ */
         @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .timeline {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
             .testimonials-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            .timeline {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .about-grid {
-                gap: 48px;
             }
         }
 
         @media (max-width: 768px) {
             .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
-                background: var(--white);
-                flex-direction: column;
-                padding: 100px 32px 32px;
-                gap: 24px;
-                box-shadow: -8px 0 32px rgba(0,0,0,0.1);
-                transition: right var(--duration-normal) var(--ease-out);
+                display: none;
             }
-
-            .nav-links.open {
-                right: 0;
-            }
-
-            .nav-toggle {
-                display: flex;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .features-grid {
+            .features-grid, .testimonials-grid, .timeline {
                 grid-template-columns: 1fr;
             }
-
-            .testimonials-grid {
+            .hero-skills {
                 grid-template-columns: 1fr;
-            }
-
-            .timeline {
-                grid-template-columns: 1fr;
-            }
-
-            .session-meta {
-                grid-template-columns: 1fr;
-            }
-
-            .session-details {
-                padding: 32px 24px;
-            }
-
-            .hero-stats {
-                gap: 24px;
-            }
-
-            .hero-stat-number {
-                font-size: 24px;
-            }
-
-            .session-footer {
-                flex-direction: column;
-                align-items: stretch;
-                text-align: center;
-            }
-
-            .session-price {
-                justify-content: center;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .reg-form-card {
-                padding: 32px 24px;
-            }
-
-            .about-skills {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-stats {
-                flex-direction: column;
-                gap: 16px;
-            }
-
-            .stat-divider {
-                width: 40px;
-                height: 1px;
-            }
-
-            .hero-title {
-                font-size: 36px;
             }
         }
     </style>
@@ -1561,7 +1088,7 @@
 <body>
 
     <!-- ========================== NAVIGATION ========================== -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar">
         <div class="navbar-inner">
             <a href="#" class="nav-logo">
                 <div class="nav-logo-icon">PC</div>
@@ -1569,322 +1096,257 @@
             </a>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="#about">About</a></li>
-                <li><a href="#why-join">Why Join</a></li>
                 <li><a href="#journey">Journey</a></li>
-                <li><a href="#upcoming">Sessions</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#upcoming" class="nav-cta">Join Now</a></li>
             </ul>
-
-            <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </nav>
 
-    <!-- ========================== HERO SECTION ========================== -->
+    <!-- ========================== HERO & NEXT SESSION ========================== -->
     <section class="hero" id="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span class="pulse-dot"></span>
-                Now Accepting Registrations
-            </div>
-            <h1 class="hero-title">
-                Build Confidence.<br>
-                <span class="gradient-text">Command Presence.</span><br>
-                Lead with Impact.
-            </h1>
-            <p class="hero-subtitle">
-                Join India's most engaging professional development community. Every week, practice the skills that accelerate your career — speaking, leadership, and real human connection.
-            </p>
-            <div class="hero-actions">
-                <a href="#upcoming" class="btn btn-primary">
-                    Join Next Session
-                    <span class="btn-icon">→</span>
-                </a>
-                <a href="#about" class="btn btn-secondary">
-                    Learn More
-                </a>
-            </div>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="hero-stat-number">500+</div>
-                    <div class="hero-stat-label">Professionals Trained</div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number">50+</div>
-                    <div class="hero-stat-label">Sessions Conducted</div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number">4.9★</div>
-                    <div class="hero-stat-label">Average Rating</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================== ABOUT SECTION ========================== -->
-    <section class="about" id="about">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-text reveal">
-                    <span class="section-label">About Us</span>
-                    <h2>A Community Built for Professionals Who Want More</h2>
-                    <p>
-                        Professional Charisma is a weekly activity-based community where working professionals come together to build the soft skills that textbooks can't teach. Through structured practice, expert feedback, and genuine connections, we help you become the professional you've always aspired to be.
+            <div class="hero-grid">
+                <!-- Left Column: Core Info & Skills -->
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="pulse-dot"></span>
+                        Now Accepting Registrations
+                    </div>
+                    <h1 class="hero-title">
+                        Build Confidence.<br>
+                        <span class="gradient-text">Command Presence.</span><br>
+                        Lead with Impact.
+                    </h1>
+                    <p class="hero-subtitle">
+                        Professional Charisma is a weekly activity-based community where working professionals practice speaking, presentation, and leadership to accelerate their careers.
                     </p>
-                    <div class="about-skills">
-                        <div class="skill-tag reveal reveal-delay-1">
-                            <div class="skill-tag-icon" style="background: rgba(108,60,225,0.08);">💪</div>
-                            Confidence
+                    
+                    <div class="hero-skills">
+                        <div class="skill-tag">
+                            <span class="skill-tag-icon">💪</span>
+                            Confidence building
                         </div>
-                        <div class="skill-tag reveal reveal-delay-2">
-                            <div class="skill-tag-icon" style="background: rgba(245,158,11,0.08);">💬</div>
-                            Communication
+                        <div class="skill-tag">
+                            <span class="skill-tag-icon">💬</span>
+                            Communication skills
                         </div>
-                        <div class="skill-tag reveal reveal-delay-3">
-                            <div class="skill-tag-icon" style="background: rgba(52,211,153,0.08);">🎤</div>
-                            Public Speaking
+                        <div class="skill-tag">
+                            <span class="skill-tag-icon">🎤</span>
+                            Public speaking
                         </div>
-                        <div class="skill-tag reveal reveal-delay-4">
-                            <div class="skill-tag-icon" style="background: rgba(239,68,68,0.08);">📊</div>
-                            Presentations
+                        <div class="skill-tag">
+                            <span class="skill-tag-icon">📊</span>
+                            Presentation mastery
                         </div>
-                        <div class="skill-tag reveal reveal-delay-5">
-                            <div class="skill-tag-icon" style="background: rgba(59,130,246,0.08);">👑</div>
-                            Leadership
+                        <div class="skill-tag">
+                            <span class="skill-tag-icon">👑</span>
+                            Leadership presence
                         </div>
-                        <div class="skill-tag reveal reveal-delay-6">
-                            <div class="skill-tag-icon" style="background: rgba(168,85,247,0.08);">🤝</div>
-                            Networking
+                        <div class="skill-tag">
+                            <span class="skill-tag-icon">🤝</span>
+                            Professional networking
+                        </div>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div>
+                            <div class="hero-stat-number">500+</div>
+                            <div class="hero-stat-label">Trained</div>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div>
+                            <div class="hero-stat-number">50+</div>
+                            <div class="hero-stat-label">Sessions</div>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div>
+                            <div class="hero-stat-number">4.9★</div>
+                            <div class="hero-stat-label">Rating</div>
+                        </div>
+                    </div>
+
+                    <!-- Unified Program Dashboard (Why Join & Journey) -->
+                    <div class="hero-dashboard">
+                        <div class="dashboard-title">✨ Why Join Us?</div>
+                        <div class="hero-why-grid">
+                            <div class="why-item">
+                                <span class="why-item-icon">🎯</span>
+                                <div>
+                                    <div class="why-item-title">Learn by Doing</div>
+                                    <div class="why-item-desc">100% active participation.</div>
+                                </div>
+                            </div>
+                            <div class="why-item">
+                                <span class="why-item-icon">📅</span>
+                                <div>
+                                    <div class="why-item-title">Weekly Practice</div>
+                                    <div class="why-item-desc">Consistent activities.</div>
+                                </div>
+                            </div>
+                            <div class="why-item">
+                                <span class="why-item-icon">🏆</span>
+                                <div>
+                                    <div class="why-item-title">Expert Feedback</div>
+                                    <div class="why-item-desc">Actionable coaching.</div>
+                                </div>
+                            </div>
+                            <div class="why-item">
+                                <span class="why-item-icon">🌐</span>
+                                <div>
+                                    <div class="why-item-title">Real Networking</div>
+                                    <div class="why-item-desc">Connect with elite peers.</div>
+                                </div>
+                            </div>
+                            <div class="why-item">
+                                <span class="why-item-icon">❤️</span>
+                                <div>
+                                    <div class="why-item-title">Supportive Circle</div>
+                                    <div class="why-item-desc">Safe, friendly space.</div>
+                                </div>
+                            </div>
+                            <div class="why-item">
+                                <span class="why-item-icon">🚀</span>
+                                <div>
+                                    <div class="why-item-title">Career Growth</div>
+                                    <div class="why-item-desc">Executive presence.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-title" id="journey">🗺️ Our 6-Step Journey</div>
+                        <div class="hero-journey-timeline">
+                            <div class="journey-node">
+                                <div class="journey-node-dot">1</div>
+                                <div class="journey-node-text">Register</div>
+                            </div>
+                            <div class="journey-connector"></div>
+                            <div class="journey-node">
+                                <div class="journey-node-dot">2</div>
+                                <div class="journey-node-text">Pay</div>
+                            </div>
+                            <div class="journey-connector"></div>
+                            <div class="journey-node">
+                                <div class="journey-node-dot">3</div>
+                                <div class="journey-node-text">WhatsApp</div>
+                            </div>
+                            <div class="journey-connector"></div>
+                            <div class="journey-node">
+                                <div class="journey-node-dot">4</div>
+                                <div class="journey-node-text">Attend</div>
+                            </div>
+                            <div class="journey-connector"></div>
+                            <div class="journey-node">
+                                <div class="journey-node-dot">5</div>
+                                <div class="journey-node-text">Feedback</div>
+                            </div>
+                            <div class="journey-connector"></div>
+                            <div class="journey-node">
+                                <div class="journey-node-dot">6</div>
+                                <div class="journey-node-text">Grow</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="about-visual reveal reveal-delay-2">
-                    <div class="about-card">
-                        <div class="about-card-stat">
-                            <div class="about-card-stat-number">100%</div>
-                            <div class="about-card-stat-label">Activity-Based Learning</div>
+                </div>
+
+                <!-- Right Column: Integrated Event Card & Form -->
+                <div class="session-showcase" id="upcoming">
+                    <div class="session-image-wrap">
+                        <img id="sessionImage" src="hero_session.jpg" alt="Upcoming Session">
+                        <div class="session-image-badge">
+                            <span class="pulse-dot" style="background: var(--success);"></span>
+                            Featured Session
                         </div>
-                        <div class="about-card-divider"></div>
-                        <div class="about-card-stat">
-                            <div class="about-card-stat-number">Every Week</div>
-                            <div class="about-card-stat-label">Consistent Practice Sessions</div>
+                    </div>
+                    <div class="session-details">
+                        <h2 class="session-title" id="sessionTitle">The Art of Confident Communication</h2>
+                        <p class="session-desc" id="sessionDesc">Master confident communication. Learn to structure thoughts, project authority, and captivate your audience.</p>
+                        
+                        <div class="session-meta">
+                            <div class="session-meta-item">
+                                <span class="session-meta-icon">📅</span>
+                                <div>
+                                    <div class="session-meta-label">Date</div>
+                                    <div class="session-meta-value" id="sessionDate">August 3, 2026</div>
+                                </div>
+                            </div>
+                            <div class="session-meta-item">
+                                <span class="session-meta-icon">🕐</span>
+                                <div>
+                                    <div class="session-meta-label">Time</div>
+                                    <div class="session-meta-value" id="sessionTime">10:00 AM</div>
+                                </div>
+                            </div>
+                            <div class="session-meta-item">
+                                <span class="session-meta-icon">📍</span>
+                                <div>
+                                    <div class="session-meta-label">Venue</div>
+                                    <div class="session-meta-value" id="sessionVenue">Innovation Hub</div>
+                                </div>
+                            </div>
+                            <div class="session-meta-item">
+                                <span class="session-meta-icon">💺</span>
+                                <div>
+                                    <div class="session-meta-label">Seats</div>
+                                    <div class="session-meta-value" id="sessionSeats">25</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="about-card-divider"></div>
-                        <div class="about-card-stat">
-                            <div class="about-card-stat-number">Real</div>
-                            <div class="about-card-stat-label">Connections & Career Growth</div>
-                        </div>
+
+                        <!-- Integrated Registration Form -->
+                        <form id="registrationForm" novalidate>
+                            <h3>Secure Your Spot</h3>
+                            <div class="form-group">
+                                <label class="form-label" for="regName">Full Name</label>
+                                <input type="text" class="form-input" id="regName" placeholder="Priya Sharma" autocomplete="name">
+                                <div class="form-error" id="regNameError">Name required</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="regPhone">Phone Number</label>
+                                <input type="tel" class="form-input" id="regPhone" placeholder="9876543210" autocomplete="tel">
+                                <div class="form-error" id="regPhoneError">Valid 10-digit number required</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="regEmail">Email Address</label>
+                                <input type="email" class="form-input" id="regEmail" placeholder="priya@company.com" autocomplete="email">
+                                <div class="form-error" id="regEmailError">Valid email required</div>
+                            </div>
+
+                            <div class="session-footer">
+                                <div>
+                                    <div class="session-price">
+                                        <span class="session-price-amount" id="sessionFeeDisplay">₹499</span>
+                                        <span class="session-price-label">/ session</span>
+                                    </div>
+                                    <div class="seats-badge" style="margin-top: 4px;">
+                                        <span class="dot"></span>
+                                        <span id="seatsText">25 seats remaining</span>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-primary">
+                                    Register Now
+                                </button>
+                            </div>
+                            <p class="form-note">🔒 Secure form. Information is protected.</p>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========================== WHY JOIN SECTION ========================== -->
-    <section class="why-join" id="why-join">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Why Join</span>
-                <h2 class="section-title">Everything You Need to Grow</h2>
-                <p class="section-subtitle">Six pillars that make Professional Charisma the most effective professional development community.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card reveal reveal-delay-1">
-                    <div class="feature-icon" style="background: rgba(108,60,225,0.08);">🎯</div>
-                    <h3>Learn by Doing</h3>
-                    <p>No boring lectures. Every session is hands-on — you practice, present, and perform in real-time scenarios.</p>
-                </div>
-                <div class="feature-card reveal reveal-delay-2">
-                    <div class="feature-icon" style="background: rgba(245,158,11,0.08);">📅</div>
-                    <h3>Weekly Practice</h3>
-                    <p>Consistency is the key to mastery. Build your skills progressively with structured weekly sessions.</p>
-                </div>
-                <div class="feature-card reveal reveal-delay-3">
-                    <div class="feature-icon" style="background: rgba(52,211,153,0.08);">🏆</div>
-                    <h3>Expert Feedback</h3>
-                    <p>Receive actionable, personalized feedback from seasoned professionals and certified coaches.</p>
-                </div>
-                <div class="feature-card reveal reveal-delay-4">
-                    <div class="feature-icon" style="background: rgba(59,130,246,0.08);">🌐</div>
-                    <h3>Real Networking</h3>
-                    <p>Connect with ambitious professionals from diverse industries. Build relationships that open doors.</p>
-                </div>
-                <div class="feature-card reveal reveal-delay-5">
-                    <div class="feature-icon" style="background: rgba(168,85,247,0.08);">❤️</div>
-                    <h3>Supportive Community</h3>
-                    <p>A judgment-free space where everyone is on the same journey — growing, learning, and lifting each other up.</p>
-                </div>
-                <div class="feature-card reveal reveal-delay-6">
-                    <div class="feature-icon" style="background: rgba(239,68,68,0.08);">🚀</div>
-                    <h3>Career Growth</h3>
-                    <p>Members report faster promotions, better negotiations, and stronger executive presence within months.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ========================== JOURNEY SECTION ========================== -->
-    <section class="journey" id="journey">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Your Journey</span>
-                <h2 class="section-title">From Sign-Up to Stand-Out</h2>
-                <p class="section-subtitle">Six simple steps to transform your professional presence. No complicated process — just consistent growth.</p>
-            </div>
-            <div class="timeline">
-                <div class="timeline-step reveal reveal-delay-1">
-                    <div class="step-number">1</div>
-                    <div class="step-icon">📝</div>
-                    <h3>Register</h3>
-                    <p>Fill in your details and secure your spot in the next session.</p>
-                </div>
-                <div class="timeline-step reveal reveal-delay-2">
-                    <div class="step-number">2</div>
-                    <div class="step-icon">💳</div>
-                    <h3>Complete Payment</h3>
-                    <p>Quick, secure payment to confirm your registration.</p>
-                </div>
-                <div class="timeline-step reveal reveal-delay-3">
-                    <div class="step-number">3</div>
-                    <div class="step-icon">💬</div>
-                    <h3>Join WhatsApp Group</h3>
-                    <p>Get added to our community for updates, resources, and networking.</p>
-                </div>
-                <div class="timeline-step reveal reveal-delay-4">
-                    <div class="step-number">4</div>
-                    <div class="step-icon">🎤</div>
-                    <h3>Attend Weekly Session</h3>
-                    <p>Show up, participate, and push your comfort zone every week.</p>
-                </div>
-                <div class="timeline-step reveal reveal-delay-5">
-                    <div class="step-number">5</div>
-                    <div class="step-icon">🔄</div>
-                    <h3>Practice & Get Feedback</h3>
-                    <p>Perform activities and receive structured, expert-led feedback.</p>
-                </div>
-                <div class="timeline-step reveal reveal-delay-6">
-                    <div class="step-number">6</div>
-                    <div class="step-icon">📈</div>
-                    <h3>Grow Every Week</h3>
-                    <p>Track your progress and watch your confidence soar week by week.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ========================== TESTIMONIALS SECTION ========================== -->
+    <!-- ========================== TESTIMONIALS ========================== -->
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Testimonials</span>
-                <h2 class="section-title">Hear From Our Members</h2>
-                <p class="section-subtitle">Real stories from professionals who transformed their careers through Professional Charisma.</p>
+                <h2 class="section-title">What Our Members Say</h2>
             </div>
             <div class="testimonials-grid" id="testimonialsGrid">
                 <!-- Testimonials populated by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================== UPCOMING SESSION SECTION ========================== -->
-    <section class="upcoming" id="upcoming">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Upcoming Session</span>
-                <h2 class="section-title">Don't Miss This Week</h2>
-                <p class="section-subtitle">Every session is designed to challenge you, teach you something new, and connect you with remarkable people.</p>
-            </div>
-            <div class="session-showcase reveal">
-                <div class="session-image-wrap">
-                    <img id="sessionImage" src="hero_session.jpg" alt="Upcoming Session">
-                    <div class="session-image-badge">
-                        <span class="pulse-dot" style="background: var(--success);"></span>
-                        Registrations Open
-                    </div>
-                </div>
-                <div class="session-details">
-                    <h2 class="session-title" id="sessionTitle">The Art of Confident Communication</h2>
-                    <p class="session-desc" id="sessionDesc">Master the foundations of confident communication. Learn to structure your thoughts, project authority, and captivate any audience — from boardrooms to networking events.</p>
-                    <div class="session-meta">
-                        <div class="session-meta-item">
-                            <div class="session-meta-icon">📅</div>
-                            <div>
-                                <div class="session-meta-label">Date</div>
-                                <div class="session-meta-value" id="sessionDate">August 3, 2026</div>
-                            </div>
-                        </div>
-                        <div class="session-meta-item">
-                            <div class="session-meta-icon">🕐</div>
-                            <div>
-                                <div class="session-meta-label">Time</div>
-                                <div class="session-meta-value" id="sessionTime">10:00 AM – 12:00 PM</div>
-                            </div>
-                        </div>
-                        <div class="session-meta-item">
-                            <div class="session-meta-icon">📍</div>
-                            <div>
-                                <div class="session-meta-label">Venue</div>
-                                <div class="session-meta-value" id="sessionVenue">Innovation Hub, Hyderabad</div>
-                            </div>
-                        </div>
-                        <div class="session-meta-item">
-                            <div class="session-meta-icon">💺</div>
-                            <div>
-                                <div class="session-meta-label">Available Seats</div>
-                                <div class="session-meta-value" id="sessionSeats">25</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Integrated Registration Form -->
-                    <form id="registrationForm" novalidate style="border-top: 1px solid var(--gray-200); padding-top: 32px; margin-top: 32px;">
-                        <h3 style="font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--gray-800); margin-bottom: 20px;">Secure Your Spot</h3>
-                        <div class="form-grid">
-                            <div class="form-group" style="margin-bottom: 0;">
-                                <label class="form-label" for="regName">Full Name</label>
-                                <input type="text" class="form-input" id="regName" placeholder="e.g., Priya Sharma" autocomplete="name">
-                                <div class="form-error" id="regNameError">Please enter your full name</div>
-                            </div>
-                            <div class="form-group" style="margin-bottom: 0;">
-                                <label class="form-label" for="regPhone">Phone Number</label>
-                                <input type="tel" class="form-input" id="regPhone" placeholder="e.g., 9876543210" autocomplete="tel">
-                                <div class="form-error" id="regPhoneError">Please enter a valid 10-digit phone number</div>
-                            </div>
-                            <div class="form-group" style="margin-bottom: 0;">
-                                <label class="form-label" for="regEmail">Email Address</label>
-                                <input type="email" class="form-input" id="regEmail" placeholder="e.g., priya@company.com" autocomplete="email">
-                                <div class="form-error" id="regEmailError">Please enter a valid email address</div>
-                            </div>
-                        </div>
-                        <div class="session-footer" style="margin-top: 24px;">
-                            <div>
-                                <div class="session-price">
-                                    <span class="session-price-amount" id="sessionFeeDisplay">₹499</span>
-                                    <span class="session-price-label">/ session</span>
-                                </div>
-                                <div class="seats-badge" style="margin-top: 8px;">
-                                    <span class="dot"></span>
-                                    <span id="seatsText">25 seats remaining</span>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="padding: 16px 36px;">
-                                Register Now
-                                <span class="btn-icon">→</span>
-                            </button>
-                        </div>
-                        <p class="form-note" style="margin-top: 20px;">
-                            🔒 Your information is secure and never shared with third parties.
-                        </p>
-                    </form>
-                </div>
             </div>
         </div>
     </section>
@@ -1898,17 +1360,11 @@
                     <span>Professional Charisma</span>
                 </div>
                 <div class="footer-social">
-                    <a href="#" aria-label="Instagram" id="socialInstagram">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                     </a>
-                    <a href="#" aria-label="LinkedIn" id="socialLinkedin">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                    </a>
-                    <a href="#" aria-label="Twitter" id="socialTwitter">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-                    </a>
-                    <a href="#" aria-label="YouTube" id="socialYoutube">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                     </a>
                 </div>
                 <div class="footer-copy">
@@ -1921,17 +1377,17 @@
     <!-- ========================== ADMIN LOGIN OVERLAY ========================== -->
     <div class="login-overlay" id="loginOverlay">
         <div class="login-card">
-            <h2>Admin Access</h2>
-            <p>Enter your password to access the admin panel.</p>
-            <div class="login-error" id="loginError">Incorrect password. Please try again.</div>
+            <h2 style="font-family: var(--font-display); font-size: 20px; font-weight: 700; margin-bottom: 8px;">Admin Access</h2>
+            <p style="font-size: 13px; color: var(--gray-500); margin-bottom: 20px;">Enter password to edit configurations.</p>
+            <div class="login-error" id="loginError" style="font-size: 12px; color: var(--error); margin-bottom: 12px; display: none;">Incorrect password.</div>
             <form id="loginForm">
-                <div class="form-group">
+                <div class="form-group" style="text-align: left;">
                     <label class="form-label" for="adminPassword">Password</label>
-                    <input type="password" class="form-input" id="adminPassword" placeholder="Enter admin password">
+                    <input type="password" class="form-input" id="adminPassword">
                 </div>
-                <button type="submit" class="btn btn-primary btn-submit">Access Panel</button>
+                <button type="submit" class="admin-save">Access Panel</button>
             </form>
-            <p style="margin-top: 16px; font-size: 12px; color: var(--gray-400);">Default password: admin123</p>
+            <p style="margin-top: 12px; font-size: 11px; color: var(--gray-400);">Default: admin123</p>
         </div>
     </div>
 
@@ -1939,13 +1395,12 @@
     <div class="admin-overlay" id="adminOverlay">
         <div class="admin-panel">
             <div class="admin-header">
-                <h2>⚙️ Admin Panel</h2>
+                <h2 style="font-family: var(--font-display); font-size: 18px; font-weight: 700;">⚙️ Admin Control Panel</h2>
                 <button class="admin-close" id="adminClose">✕</button>
             </div>
             <div class="admin-body">
-                <!-- Session Details -->
                 <div class="admin-section">
-                    <h3>📋 Session Details</h3>
+                    <h3>📋 Session Configurations</h3>
                     <div class="admin-field">
                         <label for="adminTitle">Session Title</label>
                         <input type="text" id="adminTitle">
@@ -1963,62 +1418,53 @@
                         <input type="text" id="adminVenue">
                     </div>
                     <div class="admin-field">
-                        <label for="adminFee">Registration Fee (e.g., ₹499)</label>
+                        <label for="adminFee">Registration Fee</label>
                         <input type="text" id="adminFee">
                     </div>
                     <div class="admin-field">
-                        <label for="adminSeats">Available Seats</label>
+                        <label for="adminSeats">Seats Limit</label>
                         <input type="text" id="adminSeats">
                     </div>
                     <div class="admin-field">
-                        <label for="adminDesc">Session Description</label>
-                        <textarea id="adminDesc" rows="3"></textarea>
+                        <label for="adminDesc">Description</label>
+                        <textarea id="adminDesc" rows="2"></textarea>
                     </div>
                     <div class="admin-field">
-                        <label for="adminImage">Featured Session Image URL</label>
-                        <input type="text" id="adminImage" placeholder="Enter image URL or relative path">
+                        <label for="adminImage">Featured Image URL</label>
+                        <input type="text" id="adminImage">
                     </div>
                 </div>
 
-                <!-- Integration Links -->
                 <div class="admin-section">
-                    <h3>🔗 Integration Links</h3>
+                    <h3>🔗 Redirect URLs</h3>
                     <div class="admin-field">
-                        <label for="adminPaymentURL">Payment Gateway URL</label>
-                        <input type="url" id="adminPaymentURL" placeholder="https://...">
+                        <label for="adminPaymentURL">Payment URL</label>
+                        <input type="url" id="adminPaymentURL">
                     </div>
                     <div class="admin-field">
-                        <label for="adminWhatsAppURL">WhatsApp Community Link</label>
-                        <input type="url" id="adminWhatsAppURL" placeholder="https://chat.whatsapp.com/...">
+                        <label for="adminWhatsAppURL">WhatsApp Invite URL</label>
+                        <input type="url" id="adminWhatsAppURL">
                     </div>
                 </div>
 
-                <!-- Testimonials -->
                 <div class="admin-section">
-                    <h3>💬 Testimonials</h3>
-                    <div id="adminTestimonials">
-                        <!-- Populated by JS -->
-                    </div>
+                    <h3>💬 Testimonials Manager</h3>
+                    <div id="adminTestimonials"></div>
                 </div>
 
-                <button class="admin-save" id="adminSave">💾 Save All Changes</button>
+                <button class="admin-save" id="adminSave">Save Configuration</button>
             </div>
         </div>
     </div>
 
     <!-- Toast notification -->
-    <div class="admin-toast" id="adminToast">✅ Changes saved successfully!</div>
+    <div class="admin-toast" id="adminToast">Changes saved successfully!</div>
 
     <!-- ========================== JAVASCRIPT ========================== -->
     <script>
     (function() {
         'use strict';
 
-        /* ============================================================
-           DATA LAYER — Default data & LocalStorage persistence
-           ============================================================ */
-
-        // Default session data
         const DEFAULT_SESSION = {
             title: 'The Art of Confident Communication',
             date: 'August 3, 2026',
@@ -2030,54 +1476,42 @@
             image: 'hero_session.jpg'
         };
 
-        // Default testimonials
         const DEFAULT_TESTIMONIALS = [
             {
                 name: 'Ananya Reddy',
-                role: 'Product Manager at Google',
-                text: 'Professional Charisma completely transformed how I present in meetings. Within 6 weeks, I went from dreading presentations to actually volunteering for them. My manager noticed the difference immediately.',
+                role: 'Product PM at Google',
+                text: 'Professional Charisma transformed my presentation style. I went from dreading meetings to volunteering for presentations.',
                 avatar: 'testimonial_1.jpg',
                 stars: 5
             },
             {
                 name: 'Rahul Menon',
-                role: 'Senior Developer at Microsoft',
-                text: 'The weekly practice format is genius. I\'ve tried online courses, but nothing compares to getting real-time feedback from peers and coaches. My confidence in client calls has skyrocketed.',
+                role: 'Senior SDE at Microsoft',
+                text: 'Weekly activities are fantastic. The live expert feedback is practical and accelerated my confidence on client calls.',
                 avatar: 'testimonial_2.jpg',
                 stars: 5
             },
             {
                 name: 'Sneha Kapoor',
-                role: 'Marketing Lead at Swiggy',
-                text: 'Beyond the skills, the network I\'ve built here is invaluable. I\'ve met mentors, collaborators, and friends. This community genuinely cares about your growth. Best investment in myself.',
+                role: 'Marketing at Swiggy',
+                text: 'Highly interactive community. Built a solid professional network and learned valuable leadership presence skills.',
                 avatar: 'testimonial_3.jpg',
                 stars: 5
             }
         ];
 
-        const DEFAULT_LINKS = {
-            paymentURL: '',
-            whatsappURL: ''
-        };
+        const DEFAULT_LINKS = { paymentURL: '', whatsappURL: '' };
 
-        // Admin password (stored in LocalStorage, default: admin123)
         const ADMIN_PASS_KEY = 'pc_admin_password';
         const SESSION_KEY = 'pc_session_data';
         const TESTIMONIALS_KEY = 'pc_testimonials';
         const LINKS_KEY = 'pc_links';
         const REGISTRATIONS_KEY = 'pc_registrations';
 
-        // Initialize default password
         if (!localStorage.getItem(ADMIN_PASS_KEY)) {
             localStorage.setItem(ADMIN_PASS_KEY, 'admin123');
         }
 
-        /**
-         * Get data from localStorage with fallback
-         * @param {string} key - localStorage key
-         * @param {*} fallback - default data
-         * @returns {*} parsed data or fallback
-         */
         function getData(key, fallback) {
             try {
                 const stored = localStorage.getItem(key);
@@ -2087,23 +1521,12 @@
             }
         }
 
-        /**
-         * Save data to localStorage
-         * @param {string} key - localStorage key
-         * @param {*} data - data to store
-         */
         function saveData(key, data) {
             localStorage.setItem(key, JSON.stringify(data));
         }
 
-        /* ============================================================
-           RENDER FUNCTIONS — Populate the page from data
-           ============================================================ */
-
-        /** Update the Upcoming Session section from stored data */
         function renderSession() {
             const session = getData(SESSION_KEY, DEFAULT_SESSION);
-
             document.getElementById('sessionTitle').textContent = session.title;
             document.getElementById('sessionDate').textContent = session.date;
             document.getElementById('sessionTime').textContent = session.time;
@@ -2112,24 +1535,20 @@
             document.getElementById('sessionSeats').textContent = session.seats;
             document.getElementById('seatsText').textContent = session.seats + ' seats remaining';
             document.getElementById('sessionDesc').textContent = session.description;
-
             if (session.image) {
                 document.getElementById('sessionImage').src = session.image;
             }
         }
 
-        /** Render testimonial cards */
         function renderTestimonials() {
             const testimonials = getData(TESTIMONIALS_KEY, DEFAULT_TESTIMONIALS);
             const grid = document.getElementById('testimonialsGrid');
             grid.innerHTML = '';
 
-            testimonials.forEach(function(t, i) {
+            testimonials.forEach(function(t) {
                 const stars = '★'.repeat(t.stars) + '☆'.repeat(5 - t.stars);
-                const delayClass = 'reveal-delay-' + (i + 1);
-
                 const card = document.createElement('div');
-                card.className = 'testimonial-card reveal ' + delayClass;
+                card.className = 'testimonial-card reveal';
                 card.innerHTML =
                     '<div class="testimonial-stars">' + stars + '</div>' +
                     '<p class="testimonial-text">"' + escapeHTML(t.text) + '"</p>' +
@@ -2142,84 +1561,38 @@
                     '</div>';
                 grid.appendChild(card);
             });
-
-            // Re-observe newly added elements
             observeRevealElements();
         }
 
-        /** Escape HTML to prevent XSS */
         function escapeHTML(str) {
             const div = document.createElement('div');
             div.textContent = str;
             return div.innerHTML;
         }
 
-        /* ============================================================
-           NAVIGATION
-           ============================================================ */
-
-        const navbar = document.getElementById('navbar');
-        const navToggle = document.getElementById('navToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        // Scroll effects for navbar
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 20) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile nav toggle
-        navToggle.addEventListener('click', function() {
-            navToggle.classList.toggle('active');
-            navLinks.classList.toggle('open');
-        });
-
-        // Close mobile nav on link click
-        navLinks.querySelectorAll('a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                navToggle.classList.remove('active');
-                navLinks.classList.remove('open');
-            });
-        });
-
-        /* ============================================================
-           SCROLL REVEAL ANIMATION
-           ============================================================ */
-
         function observeRevealElements() {
-            var observer = new IntersectionObserver(function(entries) {
+            const observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
+            }, { threshold: 0.1 });
             document.querySelectorAll('.reveal:not(.visible)').forEach(function(el) {
                 observer.observe(el);
             });
         }
 
-        /* ============================================================
-           REGISTRATION FORM
-           ============================================================ */
-
+        // Form Validation & Action
         const regForm = document.getElementById('registrationForm');
-
         regForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            const name = document.getElementById('regName').value.trim();
+            const phone = document.getElementById('regPhone').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            let valid = true;
 
-            var name = document.getElementById('regName').value.trim();
-            var phone = document.getElementById('regPhone').value.trim();
-            var email = document.getElementById('regEmail').value.trim();
-
-            var valid = true;
-
-            // Validate name
             if (name.length < 2) {
                 showFieldError('regName', 'regNameError');
                 valid = false;
@@ -2227,7 +1600,6 @@
                 clearFieldError('regName', 'regNameError');
             }
 
-            // Validate phone (10-digit Indian number)
             if (!/^[6-9]\d{9}$/.test(phone)) {
                 showFieldError('regPhone', 'regPhoneError');
                 valid = false;
@@ -2235,7 +1607,6 @@
                 clearFieldError('regPhone', 'regPhoneError');
             }
 
-            // Validate email
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                 showFieldError('regEmail', 'regEmailError');
                 valid = false;
@@ -2245,31 +1616,18 @@
 
             if (!valid) return;
 
-            // Save registration
-            var registrations = getData(REGISTRATIONS_KEY, []);
-            registrations.push({
-                name: name,
-                phone: phone,
-                email: email,
-                timestamp: new Date().toISOString()
-            });
+            const registrations = getData(REGISTRATIONS_KEY, []);
+            registrations.push({ name, phone, email, timestamp: new Date().toISOString() });
             saveData(REGISTRATIONS_KEY, registrations);
 
-            // Redirect to payment gateway or show success
-            var links = getData(LINKS_KEY, DEFAULT_LINKS);
+            const links = getData(LINKS_KEY, DEFAULT_LINKS);
             if (links.paymentURL) {
-                // In production: integrate with Razorpay/PhonePe/Cashfree/Stripe SDK
-                // For now, redirect to configured payment URL
                 window.location.href = links.paymentURL;
             } else {
-                // No payment URL configured — show success and redirect to WhatsApp if available
-                showToast('✅ Registration successful!');
+                showToast('Registration successful!');
                 regForm.reset();
-
                 if (links.whatsappURL) {
-                    setTimeout(function() {
-                        window.open(links.whatsappURL, '_blank');
-                    }, 1500);
+                    setTimeout(function() { window.open(links.whatsappURL, '_blank'); }, 1200);
                 }
             }
         });
@@ -2284,7 +1642,6 @@
             document.getElementById(errorId).classList.remove('visible');
         }
 
-        // Clear errors on input
         ['regName', 'regPhone', 'regEmail'].forEach(function(id) {
             document.getElementById(id).addEventListener('input', function() {
                 this.classList.remove('error');
@@ -2292,10 +1649,7 @@
             });
         });
 
-        /* ============================================================
-           ADMIN PANEL
-           ============================================================ */
-
+        // Admin Access controls
         const adminTrigger = document.getElementById('adminTrigger');
         const loginOverlay = document.getElementById('loginOverlay');
         const loginForm = document.getElementById('loginForm');
@@ -2304,9 +1658,8 @@
         const adminClose = document.getElementById('adminClose');
         const adminSave = document.getElementById('adminSave');
 
-        // Triple-click on footer logo to open admin
-        var clickCount = 0;
-        var clickTimer = null;
+        let clickCount = 0;
+        let clickTimer = null;
         adminTrigger.addEventListener('click', function() {
             clickCount++;
             if (clickCount === 3) {
@@ -2319,7 +1672,6 @@
             clickTimer = setTimeout(function() { clickCount = 0; }, 500);
         });
 
-        // Also open via keyboard shortcut: Ctrl+Shift+A
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && e.shiftKey && e.key === 'A') {
                 e.preventDefault();
@@ -2328,12 +1680,10 @@
             }
         });
 
-        // Login
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            var password = document.getElementById('adminPassword').value;
-            var storedPass = localStorage.getItem(ADMIN_PASS_KEY) || 'admin123';
-
+            const password = document.getElementById('adminPassword').value;
+            const storedPass = localStorage.getItem(ADMIN_PASS_KEY) || 'admin123';
             if (password === storedPass) {
                 loginOverlay.classList.remove('active');
                 document.getElementById('adminPassword').value = '';
@@ -2344,7 +1694,6 @@
             }
         });
 
-        // Close login on overlay click
         loginOverlay.addEventListener('click', function(e) {
             if (e.target === loginOverlay) {
                 loginOverlay.classList.remove('active');
@@ -2353,8 +1702,7 @@
         });
 
         function openAdminPanel() {
-            // Populate admin fields with current data
-            var session = getData(SESSION_KEY, DEFAULT_SESSION);
+            const session = getData(SESSION_KEY, DEFAULT_SESSION);
             document.getElementById('adminTitle').value = session.title;
             document.getElementById('adminDate').value = session.date;
             document.getElementById('adminTime').value = session.time;
@@ -2364,25 +1712,24 @@
             document.getElementById('adminDesc').value = session.description;
             document.getElementById('adminImage').value = session.image;
 
-            var links = getData(LINKS_KEY, DEFAULT_LINKS);
+            const links = getData(LINKS_KEY, DEFAULT_LINKS);
             document.getElementById('adminPaymentURL').value = links.paymentURL || '';
             document.getElementById('adminWhatsAppURL').value = links.whatsappURL || '';
 
-            // Populate testimonial editor
-            var testimonials = getData(TESTIMONIALS_KEY, DEFAULT_TESTIMONIALS);
-            var container = document.getElementById('adminTestimonials');
+            const testimonials = getData(TESTIMONIALS_KEY, DEFAULT_TESTIMONIALS);
+            const container = document.getElementById('adminTestimonials');
             container.innerHTML = '';
 
             testimonials.forEach(function(t, i) {
-                var card = document.createElement('div');
+                const card = document.createElement('div');
                 card.className = 'admin-testimonial-card';
                 card.innerHTML =
                     '<h4>Testimonial ' + (i + 1) + '</h4>' +
                     '<div class="admin-field"><label>Name</label><input type="text" id="tName' + i + '" value="' + escapeAttr(t.name) + '"></div>' +
                     '<div class="admin-field"><label>Role</label><input type="text" id="tRole' + i + '" value="' + escapeAttr(t.role) + '"></div>' +
-                    '<div class="admin-field"><label>Avatar URL</label><input type="text" id="tAvatar' + i + '" value="' + escapeAttr(t.avatar) + '"></div>' +
+                    '<div class="admin-field"><label>Avatar</label><input type="text" id="tAvatar' + i + '" value="' + escapeAttr(t.avatar) + '"></div>' +
                     '<div class="admin-field"><label>Stars (1-5)</label><input type="number" id="tStars' + i + '" value="' + t.stars + '" min="1" max="5"></div>' +
-                    '<div class="admin-field"><label>Testimonial Text</label><textarea id="tText' + i + '" rows="2">' + escapeHTML(t.text) + '</textarea></div>';
+                    '<div class="admin-field"><label>Comment</label><textarea id="tText' + i + '" rows="2">' + escapeHTML(t.text) + '</textarea></div>';
                 container.appendChild(card);
             });
 
@@ -2393,21 +1740,13 @@
             return str.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
         }
 
-        // Close admin
-        adminClose.addEventListener('click', function() {
-            adminOverlay.classList.remove('active');
-        });
-
+        adminClose.addEventListener('click', function() { adminOverlay.classList.remove('active'); });
         adminOverlay.addEventListener('click', function(e) {
-            if (e.target === adminOverlay) {
-                adminOverlay.classList.remove('active');
-            }
+            if (e.target === adminOverlay) adminOverlay.classList.remove('active');
         });
 
-        // Save admin changes
         adminSave.addEventListener('click', function() {
-            // Save session
-            var session = {
+            const session = {
                 title: document.getElementById('adminTitle').value,
                 date: document.getElementById('adminDate').value,
                 time: document.getElementById('adminTime').value,
@@ -2419,89 +1758,46 @@
             };
             saveData(SESSION_KEY, session);
 
-            // Save links
-            var links = {
+            const links = {
                 paymentURL: document.getElementById('adminPaymentURL').value,
                 whatsappURL: document.getElementById('adminWhatsAppURL').value
             };
             saveData(LINKS_KEY, links);
 
-            // Save testimonials
-            var testimonials = getData(TESTIMONIALS_KEY, DEFAULT_TESTIMONIALS);
-            var updatedTestimonials = [];
-            for (var i = 0; i < testimonials.length; i++) {
-                var nameEl = document.getElementById('tName' + i);
-                if (!nameEl) break;
-                updatedTestimonials.push({
-                    name: nameEl.value,
+            const testimonials = getData(TESTIMONIALS_KEY, DEFAULT_TESTIMONIALS);
+            const updated = [];
+            for (let i = 0; i < testimonials.length; i++) {
+                const el = document.getElementById('tName' + i);
+                if (!el) break;
+                updated.push({
+                    name: el.value,
                     role: document.getElementById('tRole' + i).value,
                     avatar: document.getElementById('tAvatar' + i).value,
                     stars: parseInt(document.getElementById('tStars' + i).value) || 5,
                     text: document.getElementById('tText' + i).value
                 });
             }
-            saveData(TESTIMONIALS_KEY, updatedTestimonials);
+            saveData(TESTIMONIALS_KEY, updated);
 
-            // Re-render website
             renderSession();
             renderTestimonials();
-
-            // Show toast
-            showToast('✅ Changes saved successfully!');
-
-            // Close panel
-            setTimeout(function() {
-                adminOverlay.classList.remove('active');
-            }, 800);
+            showToast('Changes saved successfully!');
+            setTimeout(function() { adminOverlay.classList.remove('active'); }, 600);
         });
 
-        /* ============================================================
-           TOAST NOTIFICATION
-           ============================================================ */
-
         function showToast(message) {
-            var toast = document.getElementById('adminToast');
+            const toast = document.getElementById('adminToast');
             toast.textContent = message;
             toast.classList.add('show');
-            setTimeout(function() {
-                toast.classList.remove('show');
-            }, 3000);
+            setTimeout(function() { toast.classList.remove('show'); }, 2500);
         }
 
-        /* ============================================================
-           FOOTER YEAR
-           ============================================================ */
         document.getElementById('footerYear').textContent = new Date().getFullYear();
 
-        /* ============================================================
-           PAYMENT GATEWAY INTEGRATION HOOKS
-           ============================================================
-           Future integration point for payment gateways.
-           The registration form collects user data and can call any
-           of these payment SDKs before redirecting:
-
-           - Razorpay: Load razorpay checkout.js, create order, open modal
-           - PhonePe: Redirect to PhonePe payment page
-           - Cashfree: Load Cashfree SDK, initiate payment
-           - Stripe:  Load Stripe.js, create checkout session
-
-           After payment success, redirect to WhatsApp community link.
-
-           Backend integration (Firebase/Supabase) can be added by:
-           1. Replacing saveData() calls with API calls
-           2. Adding authentication for admin panel
-           3. Storing registrations in a database
-        */
-
-        /* ============================================================
-           INITIALIZE
-           ============================================================ */
         renderSession();
         renderTestimonials();
         observeRevealElements();
-
     })();
     </script>
-
 </body>
 </html>
