@@ -31,6 +31,7 @@
             --gray-300: #A8B1C7;
             --gray-400: #7E89A3;
             --gray-500: #5A6480;
+            --gray-650: #3E475E;
             --gray-600: #3E475E;
             --gray-700: #2A3148;
             --gray-800: #1A2038;
@@ -83,7 +84,7 @@
 
         body {
             font-family: var(--font-body);
-            color: var(--gray-800);
+            color: var(--black-800);
             background: var(--surface);
             line-height: 1.5;
             overflow-x: hidden;
@@ -245,6 +246,7 @@
         }
 
         .nav-cta {
+            display: inline-block;
             padding: 8px 18px;
             background: var(--primary);
             color: var(--white) !important;
@@ -253,12 +255,23 @@
             font-weight: 600;
             transition: all var(--duration-fast) var(--ease-out);
             box-shadow: 0 2px 8px var(--primary-glow);
+            animation: rapid-bounce 0.4s infinite ease-in-out;
         }
 
         .nav-cta:hover {
             background: var(--primary-dark);
-            transform: translateY(-1px);
+            transform: scale(1.1) translateY(-1px) !important;
             box-shadow: 0 4px 16px var(--primary-glow);
+            animation-play-state: paused;
+        }
+
+        @keyframes rapid-bounce {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.06);
+            }
         }
 
         /* ============ HERO GRID (SPLIT ABOVE THE FOLD) ============ */
@@ -273,7 +286,7 @@
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
             gap: 40px;
-            align-items: start;
+            align-items: stretch;
         }
 
         .hero-badge {
@@ -287,7 +300,7 @@
             font-size: 12px;
             font-weight: 600;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .hero-badge .pulse-dot {
@@ -310,7 +323,7 @@
             line-height: 1.15;
             letter-spacing: -0.03em;
             color: var(--gray-900);
-            margin-bottom: 14px;
+            margin-bottom: 18px;
         }
 
         .hero-title .gradient-text {
@@ -323,16 +336,16 @@
         .hero-subtitle {
             font-size: 14.5px;
             color: var(--gray-500);
-            line-height: 1.5;
-            margin-bottom: 20px;
+            line-height: 1.6;
+            margin-bottom: 28px;
         }
 
         /* Inline skills list (from About section) */
         .hero-skills {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 32px;
+            gap: 12px;
+            margin-bottom: 36px;
         }
 
         .skill-tag {
@@ -358,7 +371,8 @@
             align-items: center;
             gap: 32px;
             border-top: 1px solid var(--gray-200);
-            padding-top: 24px;
+            padding-top: 28px;
+            padding-bottom: 4px;
         }
 
         .hero-stat-number {
@@ -385,8 +399,8 @@
             background: var(--surface-elevated);
             border: 1px solid var(--gray-200);
             border-radius: var(--radius-lg);
-            padding: 20px;
-            margin-top: 24px;
+            padding: 24px;
+            margin-top: 32px;
             box-shadow: 0 4px 20px rgba(14, 19, 34, 0.02);
         }
 
@@ -493,16 +507,28 @@
 
         /* ============ INTEGRATED CHECKOUT CARD ============ */
         .session-showcase {
-            background: var(--surface-elevated);
+            background: #FFFFFF;
             border: 1px solid var(--gray-200);
             border-radius: var(--radius-xl);
             box-shadow: 0 16px 48px rgba(14, 19, 34, 0.06);
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform var(--duration-normal) var(--ease-out),
+                        border-color var(--duration-normal) var(--ease-out),
+                        box-shadow var(--duration-normal) var(--ease-out);
+        }
+
+        .session-showcase:hover {
+            transform: translateY(-4px);
+            border-color: rgba(108, 60, 225, 0.25);
+            box-shadow: 0 24px 60px rgba(108, 60, 225, 0.08);
         }
 
         .session-image-wrap {
             position: relative;
-            height: 140px;
+            height: 200px;
             overflow: hidden;
         }
 
@@ -517,27 +543,37 @@
             top: 12px;
             left: 12px;
             padding: 6px 12px;
-            background: rgba(14, 19, 34, 0.7);
+            background: rgba(14, 19, 34, 0.75);
             backdrop-filter: blur(8px);
             border-radius: 100px;
             color: var(--white);
             font-size: 11px;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
 
         .session-details {
-            padding: 20px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .session-category {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--primary);
+            margin-bottom: 4px;
         }
 
         .session-title {
             font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 22px;
+            font-weight: 800;
             color: var(--gray-900);
-            margin-bottom: 4px;
+            margin-bottom: 8px;
         }
 
         .session-desc {
@@ -548,45 +584,52 @@
         }
 
         .session-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
             margin-bottom: 16px;
         }
 
         .session-meta-item {
             display: flex;
             align-items: center;
-            gap: 6px;
-            padding: 6px 10px;
-            background: var(--surface-sunken);
+            gap: 12px;
+            padding: 10px 14px;
+            background: #EEF2F6;
+            border: 1px solid var(--gray-100);
             border-radius: var(--radius-sm);
-            flex: 1;
-            min-width: 100px;
         }
 
         .session-meta-icon {
-            font-size: 14px;
+            font-size: 18px;
+            color: var(--primary);
         }
 
         .session-meta-label {
+            display: block;
             font-size: 9px;
-            color: var(--gray-400);
-            font-weight: 600;
+            color: var(--gray-500);
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2px;
         }
 
         .session-meta-value {
             font-size: 12px;
             font-weight: 700;
             color: var(--gray-800);
+            line-height: 1.25;
         }
 
         /* Compact Form Styling */
         #registrationForm {
-            border-top: 1px solid var(--gray-200);
-            padding-top: 14px;
-            margin-top: 14px;
+            border-top: 1px dashed var(--gray-200);
+            padding-top: 16px;
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
 
         #registrationForm h3 {
@@ -594,35 +637,44 @@
             font-size: 15px;
             font-weight: 700;
             color: var(--gray-800);
-            margin-bottom: 10px;
+            margin-bottom: 16px;
         }
 
         .form-group {
-            margin-bottom: 8px;
+            margin-bottom: 16px;
+        }
+
+        .form-group:last-of-type {
+            margin-bottom: auto;
         }
 
         .form-label {
             display: block;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
-            color: var(--gray-650);
-            margin-bottom: 3px;
+            color: var(--gray-700);
+            margin-bottom: 6px;
         }
 
         .form-input {
             width: 100%;
-            padding: 8px 12px;
-            background: var(--surface-sunken);
-            border: 1.5px solid var(--gray-200);
-            border-radius: var(--radius-sm);
-            font-size: 13px;
+            padding: 10px 14px;
+            background: #EEF2F6;
+            border: 1px solid #DBE0ED;
+            border-radius: 8px;
+            font-size: 13.5px;
             color: var(--gray-800);
             transition: all var(--duration-fast);
         }
 
+        .form-input:hover:not(:focus) {
+            border-color: var(--gray-300);
+            background: #EEF2F6;
+        }
+
         .form-input:focus {
             border-color: var(--primary);
-            background: var(--surface-elevated);
+            background: #FFFFFF;
             box-shadow: 0 0 0 3px var(--primary-glow);
         }
 
@@ -646,13 +698,17 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 16px;
+            margin-top: 24px;
+            padding-top: 12px;
+            border-top: 1px dashed var(--gray-200);
         }
 
         .session-price {
             display: flex;
-            align-items: baseline;
+            flex-direction: column;
+            align-items: flex-start;
             gap: 2px;
+            margin-bottom: 6px;
         }
 
         .session-price-amount {
@@ -660,12 +716,14 @@
             font-size: 26px;
             font-weight: 800;
             color: var(--gray-900);
+            line-height: 1.1;
         }
 
         .session-price-label {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--gray-400);
             font-weight: 500;
+            line-height: 1.2;
         }
 
         .seats-badge {
@@ -699,11 +757,13 @@
             border-radius: 100px;
             box-shadow: 0 4px 12px var(--primary-glow);
             transition: all var(--duration-fast);
+            animation: rapid-bounce 0.4s infinite ease-in-out;
         }
 
         .btn-primary:hover {
             background: var(--primary-dark);
-            transform: translateY(-1px);
+            transform: scale(1.1) translateY(-1px) !important;
+            animation-play-state: paused;
         }
 
         .form-note {
@@ -813,9 +873,16 @@
             line-height: 1.3;
         }
 
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gray-200), transparent);
+            margin: 0;
+        }
+
         /* ============ TESTIMONIALS SECTION ============ */
         .testimonials {
-            padding: var(--section-padding) 0;
+            padding: 40px 0 var(--section-padding) 0;
         }
 
         .testimonials-grid {
@@ -1096,9 +1163,9 @@
             </a>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="#journey">Journey</a></li>
+                <li><a href="#why-join">Why Join Us</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#upcoming" class="nav-cta">Join Now</a></li>
+                <li><a href="#registrationForm" class="nav-cta">Join Now</a></li>
             </ul>
         </div>
     </nav>
@@ -1167,7 +1234,7 @@
                     </div>
 
                     <!-- Unified Program Dashboard (Why Join & Journey) -->
-                    <div class="hero-dashboard">
+                    <div class="hero-dashboard" id="why-join">
                         <div class="dashboard-title">✨ Why Join Us?</div>
                         <div class="hero-why-grid">
                             <div class="why-item">
@@ -1248,41 +1315,40 @@
                         </div>
                     </div>
                 </div>
-                </div>
 
                 <!-- Right Column: Integrated Event Card & Form -->
                 <div class="session-showcase" id="upcoming">
                     <div class="session-image-wrap">
                         <img id="sessionImage" src="hero_session.jpg" alt="Upcoming Session">
                         <div class="session-image-badge">
-                            <span class="pulse-dot" style="background: var(--success);"></span>
                             Featured Session
                         </div>
                     </div>
                     <div class="session-details">
-                        <h2 class="session-title" id="sessionTitle">The Art of Confident Communication</h2>
-                        <p class="session-desc" id="sessionDesc">Master confident communication. Learn to structure thoughts, project authority, and captivate your audience.</p>
+                        <span class="session-category">Upcoming Session</span>
+                        <h2 class="session-title" id="sessionTitle">Professional Charisma Club</h2>
+                        <p class="session-desc" id="sessionDesc">Master confidence, charisma, and influence through our activity-based weekly sessions while developing meta skills that accelerate your personal and professional growth. Build meaningful relationships with interesting, ambitious & like minded professionals.</p>
                         
                         <div class="session-meta">
                             <div class="session-meta-item">
                                 <span class="session-meta-icon">📅</span>
                                 <div>
                                     <div class="session-meta-label">Date</div>
-                                    <div class="session-meta-value" id="sessionDate">August 3, 2026</div>
+                                    <div class="session-meta-value" id="sessionDate">Calculating...</div>
                                 </div>
                             </div>
                             <div class="session-meta-item">
                                 <span class="session-meta-icon">🕐</span>
                                 <div>
                                     <div class="session-meta-label">Time</div>
-                                    <div class="session-meta-value" id="sessionTime">10:00 AM</div>
+                                    <div class="session-meta-value" id="sessionTime">10:00 AM – 12:00 PM</div>
                                 </div>
                             </div>
                             <div class="session-meta-item">
                                 <span class="session-meta-icon">📍</span>
                                 <div>
                                     <div class="session-meta-label">Venue</div>
-                                    <div class="session-meta-value" id="sessionVenue">Innovation Hub</div>
+                                    <div class="session-meta-value" id="sessionVenue">Innovation Hub, Bhopal</div>
                                 </div>
                             </div>
                             <div class="session-meta-item">
@@ -1314,15 +1380,9 @@
                             </div>
 
                             <div class="session-footer">
-                                <div>
-                                    <div class="session-price">
-                                        <span class="session-price-amount" id="sessionFeeDisplay">₹499</span>
-                                        <span class="session-price-label">/ session</span>
-                                    </div>
-                                    <div class="seats-badge" style="margin-top: 4px;">
-                                        <span class="dot"></span>
-                                        <span id="seatsText">25 seats remaining</span>
-                                    </div>
+                                <div class="seats-badge">
+                                    <span class="dot"></span>
+                                    <span id="seatsText">25 seats remaining</span>
                                 </div>
                                 <button type="submit" class="btn-primary">
                                     Register Now
@@ -1335,6 +1395,8 @@
             </div>
         </div>
     </section>
+    
+    <hr class="section-divider">
 
 
 
@@ -1406,8 +1468,8 @@
                         <input type="text" id="adminTitle">
                     </div>
                     <div class="admin-field">
-                        <label for="adminDate">Date</label>
-                        <input type="text" id="adminDate">
+                        <label for="adminDate">Date (Automatically calculated)</label>
+                        <input type="text" id="adminDate" readonly disabled style="opacity: 0.7; cursor: not-allowed; background: var(--surface-sunken);">
                     </div>
                     <div class="admin-field">
                         <label for="adminTime">Time</label>
@@ -1465,14 +1527,25 @@
     (function() {
         'use strict';
 
+        function getNextSundayDateString() {
+            const today = new Date();
+            const day = today.getDay();
+            const distance = day === 0 ? 0 : 7 - day;
+            const nextSunday = new Date(today);
+            nextSunday.setDate(today.getDate() + distance);
+            
+            const options = { month: 'long', day: 'numeric', year: 'numeric' };
+            return nextSunday.toLocaleDateString('en-US', options);
+        }
+
         const DEFAULT_SESSION = {
-            title: 'The Art of Confident Communication',
-            date: 'August 3, 2026',
+            title: 'Professional Charisma Club',
+            date: '', // Auto-calculated dynamically
             time: '10:00 AM – 12:00 PM',
-            venue: 'Innovation Hub, Hyderabad',
+            venue: 'Innovation Hub, Bhopal',
             fee: '₹499',
             seats: '25',
-            description: 'Master the foundations of confident communication. Learn to structure your thoughts, project authority, and captivate any audience — from boardrooms to networking events.',
+            description: 'Master confidence, charisma, and influence through our activity-based weekly sessions while developing meta skills that accelerate your personal and professional growth. Build meaningful relationships with interesting, ambitious & like minded professionals.',
             image: 'hero_session.jpg'
         };
 
@@ -1496,6 +1569,27 @@
                 role: 'Marketing at Swiggy',
                 text: 'Highly interactive community. Built a solid professional network and learned valuable leadership presence skills.',
                 avatar: 'testimonial_3.jpg',
+                stars: 5
+            },
+            {
+                name: 'Vikram Desai',
+                role: 'Founder, NexaTech Solutions',
+                text: 'As a founder, pitching investors was terrifying. After 6 sessions, I closed my seed round with a pitch that felt natural and powerful.',
+                avatar: 'testimonial_4.jpg',
+                stars: 5
+            },
+            {
+                name: 'Priya Nair',
+                role: 'HR Director at Infosys',
+                text: 'The structured activities and safe environment helped me find my authentic voice. I now lead town halls for 500+ employees with ease.',
+                avatar: 'testimonial_5.jpg',
+                stars: 5
+            },
+            {
+                name: 'Arjun Malhotra',
+                role: 'Consultant at Deloitte',
+                text: 'Every Sunday feels like a masterclass in influence. The community is genuinely supportive — it changed how I show up at work every day.',
+                avatar: 'testimonial_6.jpg',
                 stars: 5
             }
         ];
@@ -1528,10 +1622,10 @@
         function renderSession() {
             const session = getData(SESSION_KEY, DEFAULT_SESSION);
             document.getElementById('sessionTitle').textContent = session.title;
-            document.getElementById('sessionDate').textContent = session.date;
+            document.getElementById('sessionDate').textContent = getNextSundayDateString();
             document.getElementById('sessionTime').textContent = session.time;
             document.getElementById('sessionVenue').textContent = session.venue;
-            document.getElementById('sessionFeeDisplay').textContent = session.fee;
+
             document.getElementById('sessionSeats').textContent = session.seats;
             document.getElementById('seatsText').textContent = session.seats + ' seats remaining';
             document.getElementById('sessionDesc').textContent = session.description;
@@ -1704,7 +1798,7 @@
         function openAdminPanel() {
             const session = getData(SESSION_KEY, DEFAULT_SESSION);
             document.getElementById('adminTitle').value = session.title;
-            document.getElementById('adminDate').value = session.date;
+            document.getElementById('adminDate').value = getNextSundayDateString();
             document.getElementById('adminTime').value = session.time;
             document.getElementById('adminVenue').value = session.venue;
             document.getElementById('adminFee').value = session.fee;
@@ -1748,7 +1842,7 @@
         adminSave.addEventListener('click', function() {
             const session = {
                 title: document.getElementById('adminTitle').value,
-                date: document.getElementById('adminDate').value,
+                date: getNextSundayDateString(),
                 time: document.getElementById('adminTime').value,
                 venue: document.getElementById('adminVenue').value,
                 fee: document.getElementById('adminFee').value,
